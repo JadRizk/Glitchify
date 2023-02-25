@@ -1,0 +1,36 @@
+import {Meta, Typeset} from '@storybook/addon-docs/blocks'; import {fontSizes} from "../fontSizes";
+
+<Meta title="Typography"/>
+
+export const typography = {
+  type: {
+    primary: '"Oswald", sans-serif'
+  },
+  weight: {
+    extraLight: 200,
+    light: 300,
+    regular: 400,
+    medium: 500,
+    bold: 700,
+  },
+  size: {
+    h1: fontSizes.scale05,
+    h2: fontSizes.scale05,
+    h3: fontSizes.scale04,
+  },
+};
+
+export const SampleText = 'This is not a text.';
+
+# Typography
+
+**Font:** Oswald
+
+**Weights:** 200(extraLight), 300(light), 400(regular), 500(medium), 600(semiBold), 700(bold)
+
+<Typeset
+  fontSizes={Object.values(fontSizes)}
+  fontWeight={typography.weight.regular}
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+/>

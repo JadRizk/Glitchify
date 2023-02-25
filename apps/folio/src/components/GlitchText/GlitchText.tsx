@@ -1,17 +1,6 @@
 import { FC } from 'react';
-import { GlitchWrapper } from './GlitchText.styled';
-import { GlitchButton } from '../GlitchButton/GlitchButton';
-import styled from 'styled-components';
-import { Input } from '../Input/Input';
-
-export const Flex = styled.div`
-  display: flex;
-  flex-direction: column;
-  color: red;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-`;
+import { Glitch, GlitchWrapper, GlowText, Subtitle } from './GlitchText.styled';
+import { Button, Flex } from '@glitchify/ui';
 
 export const GlitchText: FC<{ label: string; subTitle?: string }> = ({
   label,
@@ -19,14 +8,17 @@ export const GlitchText: FC<{ label: string; subTitle?: string }> = ({
 }) => {
   return (
     <GlitchWrapper>
-      {/*<Glitch data-text={label}>{label}</Glitch>*/}
-      {/*<GlowText>{label}</GlowText>*/}
-      <Flex>
-        {/*{subTitle && <Subtitle>{subTitle}</Subtitle>}*/}
-        <>
-          <Input />
-          <GlitchButton />
-        </>
+      <Glitch data-text={label}>{label}</Glitch>
+      <GlowText>{label}</GlowText>
+      <Flex
+        column
+        alignItems={'center'}
+        justifyContent={'center'}
+        gap={{ default: 'spacing03' }}
+      >
+        {subTitle && <Subtitle>{subTitle}</Subtitle>}
+
+        <Button label={'Signin'} />
       </Flex>
     </GlitchWrapper>
   );

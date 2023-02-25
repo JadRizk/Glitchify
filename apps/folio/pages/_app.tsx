@@ -1,18 +1,18 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import './styles.css';
-import {GlobalStyle} from "./GlobalStyle";
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyle, theme } from '@glitchify/ui';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Welcome to folio!</title>
+        <title>Gl!tch#fy</title>
       </Head>
-      <main className="app">
+      <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Component {...pageProps} />
-      </main>
+      </ThemeProvider>
     </>
   );
 }

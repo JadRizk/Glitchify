@@ -4,11 +4,24 @@
   "author": "le_twix",
   "license": "MIT",
   "scripts": {
-    "start": "nx run folio:serve"
+    "start": "nx run folio:serve",
+    "build:app:prod": "nx run folio:build:production",
+    "start:app:prod": "nx run folio:serve:production",
+    "test:folio": "nx run folio:test && TZ=\"US/Pacific\" nx run folio:test",
+    "test:ui": "nx run ui:test",
+    "test": "yarn test:folio && yarn test:ui",
+    "lint:folio": "nx run folio:lint",
+    "lint:ui": "nx run ui:lint",
+    "lint": "yarn lint:folio && yarn lint:ui",
+    "start:storybook": "nx run ui:storybook",
+    "generate:ui-component": "nx g @nrwl/react:component --directory=lib/components --project=ui",
+    "generate:ui-story": "nx g @nrwl/react:stories --project=ui",
+    "g:ui:component": "yarn generate:ui-component && yarn generate:ui-story"
   },
   "private": true,
   "dependencies": {
     "@nrwl/next": "15.7.2",
+    "@storybook/addon-docs": "^6.5.16",
     "next": "13.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -17,7 +30,9 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
+    "@babel/core": "7.12.13",
     "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "7.12.13",
     "@nrwl/cypress": "15.7.2",
     "@nrwl/devkit": "15.7.2",
     "@nrwl/eslint-plugin-nx": "15.7.2",
@@ -25,10 +40,21 @@
     "@nrwl/js": "15.7.2",
     "@nrwl/linter": "15.7.2",
     "@nrwl/react": "15.7.2",
+    "@nrwl/rollup": "15.7.2",
+    "@nrwl/storybook": "^15.7.2",
+    "@nrwl/webpack": "15.7.2",
     "@nrwl/workspace": "15.7.2",
+    "@rollup/plugin-url": "^7.0.0",
+    "@storybook/addon-essentials": "^6.5.15",
+    "@storybook/builder-webpack5": "^6.5.15",
+    "@storybook/core-server": "^6.5.15",
+    "@storybook/manager-webpack5": "^6.5.15",
+    "@storybook/react": "^6.5.15",
+    "@svgr/rollup": "^6.1.2",
+    "@svgr/webpack": "^6.1.2",
     "@testing-library/react": "13.4.0",
     "@types/jest": "28.1.1",
-    "@types/node": "latest",
+    "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
     "@types/react-is": "17.0.3",
@@ -36,6 +62,7 @@
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "babel-jest": "28.1.1",
+    "babel-loader": "8.1.0",
     "babel-plugin-styled-components": "1.10.7",
     "cypress": "^12.2.0",
     "eslint": "~8.15.0",
@@ -46,6 +73,7 @@
     "eslint-plugin-jsx-a11y": "6.6.1",
     "eslint-plugin-react": "7.31.11",
     "eslint-plugin-react-hooks": "4.6.0",
+    "html-webpack-plugin": "^5.5.0",
     "jest": "28.1.1",
     "jest-environment-jsdom": "28.1.1",
     "nx": "15.7.2",
@@ -53,6 +81,7 @@
     "react-test-renderer": "18.2.0",
     "ts-jest": "28.0.5",
     "ts-node": "10.9.1",
-    "typescript": "~4.8.2"
+    "typescript": "~4.8.2",
+    "url-loader": "^4.1.1"
   }
 }

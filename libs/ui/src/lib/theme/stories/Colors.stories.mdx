@@ -1,0 +1,50 @@
+import {ColorItem, ColorPalette, Meta} from '@storybook/addon-docs';
+import {colors} from "../colors";
+
+<Meta title="Colors"/>
+
+<ColorPalette>
+  <ColorItem
+    title="Primary"
+    subtitle="Magenta 5"
+    colors={{Magenta: colors.magenta5}}
+  />
+  <ColorItem
+    title="Secondary"
+    subtitle="Green3"
+    colors={{LightGreen: colors.green3}}
+  />
+  <ColorItem
+    title="theme.colors.magenta"
+    subtitle="Magenta"
+    colors={{
+      Magenta1: colors.magenta1,
+      Magenta2: colors.magenta2,
+      Magenta3: colors.magenta3,
+      Magenta4: colors.magenta4,
+      Magenta5: colors.magenta5,
+      Magenta6: colors.magenta6,
+      Magenta7: colors.magenta7,
+      Magenta8: colors.magenta8,
+      Magenta9: colors.magenta9,
+      Magenta10: colors.magenta10,
+    }}
+  />
+
+  <ColorItem
+    title="theme.colors.green"
+    subtitle="Green"
+    colors={{
+      Green1: colors.green1,
+      Green2: colors.green2,
+      Green3: colors.green3,
+      Green4: colors.green4,
+      Green5: colors.green5,
+      Green6: colors.green6,
+      Green7: colors.green7,
+      Green8: colors.green8,
+      Green9: colors.green9,
+      Green10: colors.green10,
+    }}
+  />
+</ColorPalette>
