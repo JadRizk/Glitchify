@@ -1,39 +1,58 @@
 import {
   BodyText,
+  ExtraSmallBodyText,
   SmallBodyText,
   TypeH1,
   TypeH2,
   TypeH3,
   TypeH4,
+  TypeH5,
+  TypeH6,
   TypeProps,
 } from './Typography';
 import { Story } from '@storybook/react';
 import { StoryCenteredContainer } from '../../storybookUtils/StoryCenteredContainer';
-import { colors } from '../../theme/colors';
 
 export default {
   title: 'Typography',
-  argTypes: {
-    color: {
-      control: {
-        type: 'select',
-      },
-      options: Object.keys(colors),
-    },
-  },
 };
 
-export const Headings: Story<TypeProps> = (props) => (
+export const Headings: Story<TypeProps & { label: string }> = ({
+  label,
+  ...rest
+}) => (
   <StoryCenteredContainer>
-    <TypeH1 {...props}>This is not an H1</TypeH1>
-    <TypeH2 {...props}>This is not an H2</TypeH2>
-    <TypeH3 {...props}>This is not an H3</TypeH3>
-    <TypeH4 {...props}>This is not an H4</TypeH4>
-    <BodyText {...props}>This is not a body text</BodyText>
-    <SmallBodyText {...props}>This is not a small body text</SmallBodyText>
+    <TypeH1 {...rest} data-label={label}>
+      {label}
+    </TypeH1>
+    <TypeH2 {...rest} data-label={label}>
+      {label}
+    </TypeH2>
+    <TypeH3 {...rest} data-label={label}>
+      {label}
+    </TypeH3>
+    <TypeH4 {...rest} data-label={label}>
+      {label}
+    </TypeH4>
+    <TypeH5 {...rest} data-label={label}>
+      {label}
+    </TypeH5>
+    <TypeH6 {...rest} data-label={label}>
+      {label}
+    </TypeH6>
+
+    <BodyText {...rest} data-label={label}>
+      {label}
+    </BodyText>
+    <SmallBodyText {...rest} data-label={label}>
+      {label}
+    </SmallBodyText>
+    <ExtraSmallBodyText {...rest} data-label={label}>
+      {label}
+    </ExtraSmallBodyText>
   </StoryCenteredContainer>
 );
 
 Headings.args = {
-  color: 'magenta5',
+  label: 'This is not a heading.',
 };

@@ -1,4 +1,3 @@
-/* eslint-disable-next-line */
 import { ButtonHTMLAttributes, forwardRef, memo } from 'react';
 import styled from 'styled-components';
 import { glitch, noise1, noise2 } from '../../utils/glitch-animations';
@@ -26,8 +25,7 @@ const StyledButton = styled.button`
     background: black;
     overflow: hidden;
     top: 0;
-    animation: ${noise2} 3s linear infinite alternate-reverse,
-      ${glitch} 2s 2.05s infinite;
+    visibility: hidden;
   }
 
   &:after {
@@ -41,8 +39,21 @@ const StyledButton = styled.button`
     overflow: hidden;
     top: 0;
     padding: 0 1rem;
-    animation: ${noise1} 3s linear infinite alternate-reverse,
-      ${glitch} 2s 2s infinite;
+    visibility: hidden;
+  }
+
+  &:hover {
+    &:before {
+      visibility: visible;
+      animation: ${noise2} 3s linear infinite alternate-reverse,
+        ${glitch} 2s infinite;
+    }
+
+    &:after {
+      visibility: visible;
+      animation: ${noise1} 3s linear infinite alternate-reverse,
+        ${glitch} 2s 0.5s infinite;
+    }
   }
 `;
 
