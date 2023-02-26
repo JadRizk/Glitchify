@@ -20,6 +20,12 @@ export type Colors = {
   green8: string;
   green9: string;
   green10: string;
+
+  white1: string;
+  white2: string;
+  white3: string;
+  white4: string;
+  white5: string;
 };
 
 const magentaColors = {
@@ -48,7 +54,16 @@ const greenColors = {
   green10: '#083508',
 };
 
+const whiteColors = {
+  white1: '#FFFFFF',
+  white2: '#F8F1F1',
+  white3: '#F1E4E4',
+  white4: '#EAD6D6',
+  white5: '#DFBFBF',
+};
+
 export const colors: Colors = {
   ...magentaColors,
   ...greenColors,
+  ...whiteColors,
 };
