@@ -14,7 +14,7 @@ import { Story } from '@storybook/react';
 import { StoryCenteredContainer } from '../../storybookUtils/StoryCenteredContainer';
 
 export default {
-  title: 'Typography',
+  title: 'Components/Typography',
 };
 
 export const Headings: Story<TypeProps & { label: string }> = ({

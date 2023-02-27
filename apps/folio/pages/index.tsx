@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { GlitchText } from '../src/components/GlitchText/GlitchText';
+import { HeroText } from '@glitchify/ui';
 
 const fudge = keyframes`
   from {
@@ -37,7 +37,7 @@ const ScanLines = styled.div`
 export function Index() {
   return (
     <>
-      <GlitchText label={'Le_twix'} subTitle={'Coming soon...'} />
+      <HeroText label={'Gl!tch#f%'} subTitle={'Coming soon...'} />
       <ScanLines />
     </>
   );

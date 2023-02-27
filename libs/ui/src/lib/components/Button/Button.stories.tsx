@@ -4,7 +4,7 @@ import { StoryCenteredContainer } from '../../storybookUtils/StoryCenteredContai
 
 const Story: ComponentMeta<typeof Button> = {
   component: Button,
-  title: 'Button',
+  title: 'Components/Button',
 };
 export default Story;
 

@@ -42,11 +42,15 @@ export default class CustomDocument extends Document {
     return (
       <Html>
         <Head>
-          {this.props.styles}
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
-            href="https://fonts.googleapis.com/css?family=Oswald"
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin={'anonymous'}
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap"
             rel="stylesheet"
-            type="text/css"
           />
         </Head>
         <body>

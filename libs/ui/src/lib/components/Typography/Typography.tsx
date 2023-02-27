@@ -9,6 +9,7 @@ export type TypeProps = {
 
 const glitchTextStyles = css`
   position: relative;
+  font-family: ${({ theme }) => theme.fonts.heading};
   color: ${({ theme: { colors } }) => colors.white3};
 
   -webkit-user-select: none; /* Safari */
