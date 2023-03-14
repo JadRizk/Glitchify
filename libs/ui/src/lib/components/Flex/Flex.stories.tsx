@@ -13,9 +13,8 @@ const Item = styled(FlexItem)<{
   ${({ theme: { colors, spacings }, color, width, height }) => css`
     background: ${color ? colors[color] : colors.green4};
     padding: ${spacings.spacing09};
-    color: ${colors.sand7};
     text-align: center;
-    border: 1px solid ${colors.sand8};
+    border: 1px solid ${colors.white3};
     width: ${width ? `${width}px` : 'auto'};
     height: ${height ? `${height}px` : 'auto'};
   `};
@@ -63,7 +62,7 @@ export const FlexNestedLayout = () => (
 export const FlexSpacings = () => (
   <Flex alignItems={'center'} gap={{ default: 'spacing10' }} column>
     <Item width={400}>
-      <TypeH4>Responsive</TypeH4>
+      <TypeH4 color={'black5'}>Responsive</TypeH4>
       <Flex
         alignItems={'center'}
         gap={{
@@ -80,7 +79,7 @@ export const FlexSpacings = () => (
       </Flex>
     </Item>
     <Item width={400}>
-      <TypeH4>Same spacings for X & Y + same on all Screens</TypeH4>
+      <TypeH4 color={'black5'}>Same spacings for X & Y + same on all Screens</TypeH4>
       <Flex alignItems={'center'} gap={{ default: 'spacing04' }}>
         <Item filled color={'green1'} />
         <Item filled color={'green1'} />
@@ -89,7 +88,7 @@ export const FlexSpacings = () => (
       </Flex>
     </Item>
     <Item width={400}>
-      <TypeH4>Different spacings for X and Y but same on all screens</TypeH4>
+      <TypeH4 color={'black5'}>Different spacings for X and Y but same on all screens</TypeH4>
       <Flex alignItems={'center'} gap={{ default: 'spacing10 spacing04' }}>
         <Item filled color={'green1'} />
         <Item filled color={'green1'} />

@@ -1,8 +1,8 @@
-import { ButtonHTMLAttributes, forwardRef, memo } from 'react';
-import styled from 'styled-components';
+import { ButtonHTMLAttributes, forwardRef, memo, ReactElement } from 'react';
+import styled, { css } from 'styled-components';
 import { glitch, noise1, noise2 } from '../../utils/glitch-animations';
 
-const StyledButton = styled.button`
+const StyledButton = styled.button<StyledBaseProps>`
   all: unset;
   cursor: pointer;
   position: relative;
@@ -17,6 +17,21 @@ const StyledButton = styled.button`
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
 
+  ${({ disabled, isLoading }) => css`
+    ${disabled &&
+    `
+        opacity: 0.6;
+        cursor: default;
+        pointer-events: none;
+      `};
+
+    ${isLoading &&
+    `
+        opacity: 0.6;
+        cursor: default;
+        pointer-events: none;
+      `}
+  `}
   &:before {
     content: attr(data-text);
     position: absolute;
@@ -45,14 +60,14 @@ const StyledButton = styled.button`
   &:hover {
     &:before {
       visibility: visible;
-      animation: ${noise2} 3s linear infinite alternate-reverse,
-        ${glitch} 2s infinite;
+      animation: ${noise2} 0s linear 0.03s infinite alternate-reverse,
+        ${glitch} 0s infinite;
     }
 
     &:after {
       visibility: visible;
-      animation: ${noise1} 3s linear infinite alternate-reverse,
-        ${glitch} 2s 0.5s infinite;
+      animation: ${noise1} 0s linear 0s infinite alternate-reverse,
+        ${glitch} 0s infinite;
     }
   }
 `;
@@ -60,16 +75,22 @@ const StyledButton = styled.button`
 type StyledBaseProps = {
   label: string;
   disabled?: boolean;
+  isLoading?: boolean;
+  variant?: 'primary' | 'secondary' | 'danger';
+  iconLeft?: ReactElement;
+  iconRight?: ReactElement;
 };
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & StyledBaseProps;
 
 const ButtonComp = (props: ButtonProps) => {
-  const { label, disabled, ...rest } = props;
+  const { label, iconLeft, iconRight } = props;
 
   return (
-    <StyledButton data-label={label} {...rest}>
+    <StyledButton data-label={label} {...props}>
+      {iconLeft && iconLeft}
       {label}
+      {iconRight && iconRight}
     </StyledButton>
   );
 };

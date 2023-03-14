@@ -26,6 +26,16 @@ export type Colors = {
   white3: string;
   white4: string;
   white5: string;
+
+  black1:string;
+  black2:string;
+  black3:string;
+  black4:string;
+  black5:string;
+  black7: string;
+  black8:string;
+  black9:string;
+  black10:string;
 };
 
 const magentaColors = {
@@ -62,8 +72,22 @@ const whiteColors = {
   white5: '#DFBFBF',
 };
 
+const blackColors = {
+  black1: '#ADADAD',
+  black2: '#999999',
+  black3: '#858585',
+  black4: '#707070',
+  black5: '#5C5C5C',
+  black7: '#4747474',
+  black8: '#333333',
+  black9: '#1F1F1F',
+  black10: '#0A0A0A',
+};
+
+
 export const colors: Colors = {
   ...magentaColors,
   ...greenColors,
+  ...blackColors,
   ...whiteColors,
 };

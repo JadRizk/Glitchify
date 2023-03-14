@@ -6,3 +6,4 @@ export * from './lib/components/Button/Button';
 export * from './lib/components/Container/Container';
 export * from './lib/components/Typography/Typography';
 export * from './lib/components/HeroText/HeroText';
+export * from './lib/components/Input/Input';
