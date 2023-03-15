@@ -27,15 +27,15 @@ export type Colors = {
   white4: string;
   white5: string;
 
-  black1:string;
-  black2:string;
-  black3:string;
-  black4:string;
-  black5:string;
+  black1: string;
+  black2: string;
+  black3: string;
+  black4: string;
+  black5: string;
   black7: string;
-  black8:string;
-  black9:string;
-  black10:string;
+  black8: string;
+  black9: string;
+  black10: string;
 };
 
 const magentaColors = {
@@ -83,7 +83,6 @@ const blackColors = {
   black9: '#1F1F1F',
   black10: '#0A0A0A',
 };
-
 
 export const colors: Colors = {
   ...magentaColors,

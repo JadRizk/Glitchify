@@ -1,6 +1,6 @@
-import {Input} from "./Input";
-import {Meta, Story} from "@storybook/react";
-import {StoryCenteredContainer} from "../../storybookUtils/StoryCenteredContainer";
+import { Input } from './Input';
+import { Meta, Story } from '@storybook/react';
+import { StoryCenteredContainer } from '../../storybookUtils/StoryCenteredContainer';
 
 export default {
   title: 'Inputs/Input',

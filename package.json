@@ -13,6 +13,7 @@
     "lint:folio": "nx run folio:lint",
     "lint:ui": "nx run ui:lint",
     "lint": "yarn lint:folio && yarn lint:ui",
+    "format": "prettier -w .",
     "start:storybook": "nx run ui:storybook",
     "generate:ui-component": "nx g @nrwl/react:component --directory=lib/components --project=ui",
     "generate:ui-story": "nx g @nrwl/react:stories --project=ui",

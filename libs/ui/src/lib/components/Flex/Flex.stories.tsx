@@ -79,7 +79,9 @@ export const FlexSpacings = () => (
       </Flex>
     </Item>
     <Item width={400}>
-      <TypeH4 color={'black5'}>Same spacings for X & Y + same on all Screens</TypeH4>
+      <TypeH4 color={'black5'}>
+        Same spacings for X & Y + same on all Screens
+      </TypeH4>
       <Flex alignItems={'center'} gap={{ default: 'spacing04' }}>
         <Item filled color={'green1'} />
         <Item filled color={'green1'} />
@@ -88,7 +90,9 @@ export const FlexSpacings = () => (
       </Flex>
     </Item>
     <Item width={400}>
-      <TypeH4 color={'black5'}>Different spacings for X and Y but same on all screens</TypeH4>
+      <TypeH4 color={'black5'}>
+        Different spacings for X and Y but same on all screens
+      </TypeH4>
       <Flex alignItems={'center'} gap={{ default: 'spacing10 spacing04' }}>
         <Item filled color={'green1'} />
         <Item filled color={'green1'} />
