@@ -2,10 +2,12 @@ import { FC } from 'react';
 import styled, { css } from 'styled-components';
 import { Flex } from '@glitchify/ui';
 import { glitch, glitch2, noise1, noise2 } from '../../utils/glitch-animations';
+import { motion } from 'framer-motion';
 
 export const GlitchWrapper = styled.div`
   position: absolute;
   transform: translate(-50%, 50%);
+  user-select: none;
   top: 37.5%;
   left: 50%;
   z-index: 10;
@@ -21,7 +23,8 @@ export const Glitch = styled.div`
 
   color: ${({ theme }) => theme.colors.white5};
   position: relative;
-  animation: ${glitch} 5s 5s infinite;
+  // animation: ${glitch} 5s 5s infinite;
+  animation: ${glitch} 2.5s 2.5s infinite;
 
   &:before {
     content: attr(data-text);
@@ -31,8 +34,10 @@ export const Glitch = styled.div`
     background: black;
     overflow: hidden;
     top: 0;
-    animation: ${noise1} 3s linear infinite alternate-reverse,
-      ${glitch} 5s 5.05s infinite;
+    // animation: ${noise1} 3s linear infinite alternate-reverse,
+    //   ${glitch} 5s 5.05s infinite;
+    animation: ${noise1} 1.5s linear infinite alternate-reverse,
+      ${glitch} 2.5s 2.55s infinite;
   }
 
   &:after {
@@ -43,8 +48,10 @@ export const Glitch = styled.div`
     background: black;
     overflow: hidden;
     top: 0;
-    animation: ${noise2} 3s linear infinite alternate-reverse,
-      ${glitch} 5s 5s infinite;
+    // animation: ${noise2} 3s linear infinite alternate-reverse,
+    //   ${glitch} 5s 5s infinite;
+    animation: ${noise2} 1.5s linear infinite alternate-reverse,
+      ${glitch} 2.5s 2.5s infinite;
   }
 `;
 
@@ -69,7 +76,7 @@ export const Subtitle = styled.p`
   `};
 
   text-transform: uppercase;
-  letter-spacing: 1em;
+  letter-spacing: 0.5rem;
   text-align: center;
   animation: ${glitch2} 5s 5.02s infinite;
 
@@ -92,10 +99,34 @@ export const HeroText: FC<HeroTextProps> = ({ label, subTitle }) => {
         justifyContent={'center'}
         gap={{ default: 'spacing10' }}
       >
-        <Glitch data-text={label}>{label}</Glitch>
-        <GlowText>{label}</GlowText>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+          whileHover={{
+            scale: [1, 1.07, 1.03],
+            rotate: [0, 1, -1, 0],
+            x: [0, -2, 2, -2, 2, 0],
+            y: [0, -1, 1, -1, 1, 0],
+            transition: {
+              duration: 0.5,
+              loop: Infinity,
+              ease: 'linear',
+              repeatDelay: 0.2,
+            },
+          }}
+        >
+          <Glitch data-text={label}>{label}</Glitch>
+          <GlowText>{label}</GlowText>
+        </motion.div>
 
-        {subTitle && <Subtitle>{subTitle}</Subtitle>}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+        >
+          {subTitle && <Subtitle>{subTitle}</Subtitle>}
+        </motion.div>
       </Flex>
     </GlitchWrapper>
   );
