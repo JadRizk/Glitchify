@@ -10,7 +10,9 @@ export const GlitchWrapper = styled.div`
   user-select: none;
   top: 37.5%;
   left: 50%;
-  z-index: 10;
+  z-index: 1;
+
+  cursor: pointer;
 `;
 
 export const Glitch = styled.div`
@@ -88,11 +90,12 @@ export const Subtitle = styled.p`
 export type HeroTextProps = {
   label: string;
   subTitle?: string;
+  onClick?: () => void;
 };
 
-export const HeroText: FC<HeroTextProps> = ({ label, subTitle }) => {
+export const HeroText: FC<HeroTextProps> = ({ label, subTitle, onClick }) => {
   return (
-    <GlitchWrapper>
+    <GlitchWrapper onClick={onClick}>
       <Flex
         column
         alignItems={'center'}
