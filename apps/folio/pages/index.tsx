@@ -9,7 +9,7 @@ const Page: NextPage = () => {
     push('/me');
   };
   return (
-    <HeroText label={'Jad.Rizk'} subTitle={'[WIP]'} onClick={onHeroClick} />
+    <HeroText label={'le_twix'} subTitle={'[WIP]'} onClick={onHeroClick} />
   );
 };
 

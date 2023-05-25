@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import { Flex } from '@glitchify/ui';
 import { glitch, glitch2, noise1, noise2 } from '../../utils/glitch-animations';
 import { motion } from 'framer-motion';
+import { media } from '../../utils/mediaQueryUtils';
 
 export const GlitchWrapper = styled.div`
   position: absolute;
@@ -17,15 +18,14 @@ export const GlitchWrapper = styled.div`
 
 export const Glitch = styled.div`
   font-family: ${({ theme }) => theme.fonts.heading};
-  font-size: 10vmax;
+  font-size: 12vmax;
 
-  @media screen and (min-width: 83.4rem) {
+  ${media.minQueries.md`
     font-size: 12rem;
-  }
+  `}
 
   color: ${({ theme }) => theme.colors.white5};
   position: relative;
-  // animation: ${glitch} 5s 5s infinite;
   animation: ${glitch} 2.5s 2.5s infinite;
 
   &:before {
@@ -36,8 +36,6 @@ export const Glitch = styled.div`
     background: black;
     overflow: hidden;
     top: 0;
-    // animation: ${noise1} 3s linear infinite alternate-reverse,
-    //   ${glitch} 5s 5.05s infinite;
     animation: ${noise1} 1.5s linear infinite alternate-reverse,
       ${glitch} 2.5s 2.55s infinite;
   }
@@ -50,8 +48,6 @@ export const Glitch = styled.div`
     background: black;
     overflow: hidden;
     top: 0;
-    // animation: ${noise2} 3s linear infinite alternate-reverse,
-    //   ${glitch} 5s 5s infinite;
     animation: ${noise2} 1.5s linear infinite alternate-reverse,
       ${glitch} 2.5s 2.5s infinite;
   }
@@ -62,14 +58,15 @@ export const GlowText = styled(Glitch)`
   position: absolute;
   top: 0;
   text-shadow: 0 0 1000px ${({ theme }) => theme.colors.white5};
+  min-width: 30rem;
 `;
 
 export const Subtitle = styled.p`
   font-size: 1.5vmax;
 
-  @media screen and (min-width: 83.4rem) {
+  ${media.minQueries.md`
     font-size: 1.8rem;
-  }
+  `}
 
   ${({ theme: { fontWeights, colors } }) => css`
     font-weight: ${fontWeights.extraLight};
@@ -93,16 +90,25 @@ export type HeroTextProps = {
   onClick?: () => void;
 };
 
+const CustomGapFlex = styled(Flex)`
+  text-align: center;
+  gap: ${({ theme }) => theme.spacings.spacing10};
+
+  ${media.minQueries.md`
+    font-size: 1.8rem;
+    gap: 6rem;
+  `}
+`;
+
+const MinWidthDiv = styled(motion.div)`
+  min-width: 30rem;
+`;
+
 export const HeroText: FC<HeroTextProps> = ({ label, subTitle, onClick }) => {
   return (
     <GlitchWrapper onClick={onClick}>
-      <Flex
-        column
-        alignItems={'center'}
-        justifyContent={'center'}
-        gap={{ default: 'spacing10' }}
-      >
-        <motion.div
+      <CustomGapFlex column alignItems={'center'} justifyContent={'center'}>
+        <MinWidthDiv
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
@@ -121,7 +127,7 @@ export const HeroText: FC<HeroTextProps> = ({ label, subTitle, onClick }) => {
         >
           <Glitch data-text={label}>{label}</Glitch>
           <GlowText>{label}</GlowText>
-        </motion.div>
+        </MinWidthDiv>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
@@ -130,7 +136,7 @@ export const HeroText: FC<HeroTextProps> = ({ label, subTitle, onClick }) => {
         >
           {subTitle && <Subtitle>{subTitle}</Subtitle>}
         </motion.div>
-      </Flex>
+      </CustomGapFlex>
     </GlitchWrapper>
   );
 };
